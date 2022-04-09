@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .wrap{
+            width:800px;
+            margin:100px auto;
+            border: 5px solid black;
+        }
+        .wrap .left{
+            width:400px;
+            height:400px;
+            background-color: pink;
+            float: left;
+        }
+        .wrap .right{
+            width:400px;
+            height:400px;
+            background-color: yellow;
+            float:right;
+        }
+        .float-left {
+            float: left;
+        }
+        .float-right {
+            float: right;
+        }
+        .wrap:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        <section class="left"></section>
+        <section class="right"></section>
+    </div>
+</body>
+</html>
