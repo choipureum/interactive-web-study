@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>마우스 따라다니는 포인터</title>
+    <style>
+        body{
+            position: relative;
+            background-color: black;
+        }
+        h1{
+            color: #fff;
+        }
+        .cursor_item{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: -50px;
+            margin-left: -50px;
+            /* css로 따라오는게 제일 나은듯 */
+            transition: all .3s cubic-bezier(0.570, -0.140, 0.345, 1.225);
+        }
+    </style>
+    <script>
+        let x=0,y=0,mx=0,my= 0;
+        let speed = 0.05;
+        let cursor_item;
+
+        //1 마우스 포인터 설정
+        window.onload = function(){
+            const h1 = document.getElementsByTagName('h1')[0];
+            cursor_item = document.getElementsByClassName('cursor_item')[0];
+            //window.addEventListener("mousemove", mouseFunc, false);
+            window.addEventListener("mousemove", mouseFunc, false);
+            function mouseFunc(e){
+                x = e.clientX;
+                y = e.clientY;
+                h1.innerHTML = x;
+                cursor_item.style.transform = `translate(${x}px, ${y}px)`;
+            }
+            //loop();
+        }
+
+        //2 지속적인 마우스 포인터 움직임 추가(재귀라 왠만해서는 쓰지말것)
+        /*
+        function loop(){
+            mx += (x-mx) * speed;
+            my += (y-my) * speed;
+            cursor_item.style.transform = `translate(${mx}px, ${my}px)`;
+            window.requestAnimationFrame(loop);
+        }
+        */
+    </script>
+</head>
+<body>
+    <h1>안녕하세요</h1>
+    <div class="cursor_item"></div>
+</body>
+</html>
