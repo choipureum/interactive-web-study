@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>마우스포인터2: 실습 사이트 따라만들어보기</title>
+    <style>
+        body{
+            position: relative;
+            background-color: black;
+            overflow: hidden;
+        }
+        h1{
+            color: white;
+        }
+        .bg{
+            width: 100%;
+            height: 100%;
+        }
+        .human{
+            position: absolute;
+            width: 300px;
+            left: calc(50% - 150px);
+            top: 50%;
+            z-index:1;
+        }
+    </style>
+    <script>
+        let x=0,y=0,mx=0,my= 0;
+        let speed = 0.05;
+        let human;
+        let bg;
+
+        //1 마우스 포인터 설정
+        window.onload = function(){
+            human = document.getElementsByClassName('human')[0];
+            bg = document.getElementsByClassName('bg')[0];
+            window.addEventListener("mousemove", mouseFunc, false);
+            function mouseFunc(e){
+                x = (e.clientX - window.innerWidth/2);
+                y = (e.clientY - window.innerHeight/2);
+            }
+            loop();
+        }
+
+        function loop(){
+            mx += (x-mx) * speed;
+            my += (y-my) * speed;
+            human.style.transform = `translate(${mx/6}px, ${my/6}px)`;
+            bg.style.transform = `translate(${my/2}px, ${mx/2}px)`;
+            window.requestAnimationFrame(loop);
+        }
+    </script>
+</head>
+<body>
+    <img src="../../img/layer-7.png" class="human" alt="닝겐"/>
+    <img src="../../img/layer-1.jpeg" class="bg" alt="배경"/>
+</body>
+</html>
