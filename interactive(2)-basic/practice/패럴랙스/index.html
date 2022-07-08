@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>패럴랙스</title>
+    <style>
+        body{
+            overflow-x: hidden;
+            background: linear-gradient(150deg, red, orange, yellow,green, indigo,purple, black);
+        }
+        h1{
+            color: #fff;
+        }
+        .progress{
+            position: fixed;
+            top: 40%;
+            left: 20px;
+            width: 4px;
+            height: 140px;
+            background-color: black;
+            z-index: 10;
+        }
+        .bar{
+            position: absolute;
+            width: 4px;
+            height: 40px;
+            top: 0;
+            left: 0;
+            background-color: dodgerblue;
+        }
+        section{
+            width: 400px;
+            background-color: rgba(255,255,255,0.6);
+            margin: 0 auto;
+            padding: 20px;
+        }
+        p{
+            color: #555;
+            font-size: 30px;
+        }
+        .cloudWrap{
+            position: absolute;
+        }
+        .cloudWrap img{
+            position: absolute;
+            width: 400px;
+            top: 0;
+            left: 0;
+        }
+        .cloudWrap img:nth-child(1){
+            top: -100px;
+            left: 500px;
+        }
+        .cloudWrap img:nth-child(2){
+            top: 800px;
+            left: 0;
+        }
+        .cloudWrap img:nth-child(3){
+            top: 1800px;
+            left: 400px;
+        }
+        .cloudWrap img:nth-child(4){
+            top: 3000px;
+            left: -100px;
+        }
+        .cloudWrap img:nth-child(5){
+            top: 4200px;
+            left: 500px;
+        }
+        .cloudWrap img:nth-child(6){
+            top: 5900px;
+            left: -140px;
+        }
+        .cloudWrap img:nth-child(7){
+            top: 7000px;
+            left: 500px;
+        }
+        .cloudWrap img:nth-child(8){
+            top: 8000px;
+            left: -190px;
+        }
+        .cloudWrap img:nth-child(9){
+            top: 9500px;
+            left: 600px;
+        }
+    </style>
+    <script>
+        let scrollTop = 0;
+        let bar;
+        let cloudWrap;
+
+        window.onload = () =>{
+            bar = document.querySelector('.bar');
+            cloudWrap = document.querySelector('.cloudWrap');
+        }
+        window.addEventListener('scroll', function(e){
+            scrollTop = document.documentElement.scrollTop;
+            let per = Math.round(scrollTop / document.body.scrollHeight * 100);
+            bar.style.height = `${per}%`;
+
+            cloudWrap.style.transform = "translate(0, " + scrollTop / 1.2 +"px)";
+        }, false);
+    </script>
+</head>
+<body>
+    <h1>스크롤</h1>
+    <div class="progress">
+        <span class="bar"></span>
+    </div>
+    <div class="cloudWrap">
+        <img src="../../img/cloud.png" alt="">
+        <img src="../../img/cloud.png" alt="">
+        <img src="../../img/cloud.png" alt="">
+        <img src="../../img/cloud.png" alt="">
+        <img src="../../img/cloud.png" alt="">
+        <img src="../../img/cloud.png" alt="">
+        <img src="../../img/cloud.png" alt="">
+        <img src="../../img/cloud.png" alt="">
+        <img src="../../img/cloud.png" alt="">
+    </div>
+    <section>
+        <h1>제목</h1>
+        <p>
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Maecenas vestibulum, ante sit amet convallis auctor, augue sapien sodales ex, in fringilla ante mauris ac elit. Nam dapibus sem dolor, id pulvinar arcu finibus sed. Nunc tempus mi elit, sit amet
+            consequat nibh lobortis nec. Sed at pellentesque orci. Duis at accumsan mi, ut rhoncus nunc. Duis convallis purus non urna accumsan, vitae rutrum eros semper. Cras gravida augue luctus dui consectetur,
+            tincidunt semper lectus ornare. Pellentesque scelerisque cursus erat vel posuere. Donec interdum, urna vel commodo hendrerit, ex lectus porttitor enim, vel maximus quam mauris ac urna. Sed volutpat placerat ex,
+            eu volutpat urna commodo in. Aliquam hendrerit efficitur orci eu varius. In hac habitasse platea dictumst. Quisque vestibulum purus vitae cursus consectetur. Nam eu malesuada purus, vel blandit ante. Sed ac elit
+            purus. Nullam a nulla pretium, sodales urna eget, facilisis lectus.            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Maecenas vestibulum, ante sit amet convallis auctor, augue sapien sodales ex, in fringilla ante mauris ac elit. Nam dapibus sem dolor, id pulvinar arcu finibus sed. Nunc tempus mi elit, sit amet
+            consequat nibh lobortis nec. Sed at pellentesque orci. Duis at accumsan mi, ut rhoncus nunc. Duis convallis purus non urna accumsan, vitae rutrum eros semper. Cras gravida augue luctus dui consectetur,
+            tincidunt semper lectus ornare. Pellentesque scelerisque cursus erat vel posuere. Donec interdum, urna vel commodo hendrerit, ex lectus porttitor enim, vel maximus quam mauris ac urna. Sed volutpat placerat ex,
+            eu volutpat urna commodo in. Aliquam hendrerit efficitur orci eu varius. In hac habitasse platea dictumst. Quisque vestibulum purus vitae cursus consectetur. Nam eu malesuada purus, vel blandit ante. Sed ac elit
+            purus. Nullam a nulla pretium, sodales urna eget, facilisis lectus.
+        </p>
+    </section>
+    <section>
+        <h1>제목</h1>
+        <p>
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Maecenas vestibulum, ante sit amet convallis auctor, augue sapien sodales ex, in fringilla ante mauris ac elit. Nam dapibus sem dolor, id pulvinar arcu finibus sed. Nunc tempus mi elit, sit amet
+            consequat nibh lobortis nec. Sed at pellentesque orci. Duis at accumsan mi, ut rhoncus nunc. Duis convallis purus non urna accumsan, vitae rutrum eros semper. Cras gravida augue luctus dui consectetur,
+            tincidunt semper lectus ornare. Pellentesque scelerisque cursus erat vel posuere. Donec interdum, urna vel commodo hendrerit, ex lectus porttitor enim, vel maximus quam mauris ac urna. Sed volutpat placerat ex,
+            eu volutpat urna commodo in. Aliquam hendrerit efficitur orci eu varius. In hac habitasse platea dictumst. Quisque vestibulum purus vitae cursus consectetur. Nam eu malesuada purus, vel blandit ante. Sed ac elit
+            purus. Nullam a nulla pretium, sodales urna eget, facilisis lectus.            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Maecenas vestibulum, ante sit amet convallis auctor, augue sapien sodales ex, in fringilla ante mauris ac elit. Nam dapibus sem dolor, id pulvinar arcu finibus sed. Nunc tempus mi elit, sit amet
+            consequat nibh lobortis nec. Sed at pellentesque orci. Duis at accumsan mi, ut rhoncus nunc. Duis convallis purus non urna accumsan, vitae rutrum eros semper. Cras gravida augue luctus dui consectetur,
+            tincidunt semper lectus ornare. Pellentesque scelerisque cursus erat vel posuere. Donec interdum, urna vel commodo hendrerit, ex lectus porttitor enim, vel maximus quam mauris ac urna. Sed volutpat placerat ex,
+            eu volutpat urna commodo in. Aliquam hendrerit efficitur orci eu varius. In hac habitasse platea dictumst. Quisque vestibulum purus vitae cursus consectetur. Nam eu malesuada purus, vel blandit ante. Sed ac elit
+            purus. Nullam a nulla pretium, sodales urna eget, facilisis lectus.
+        </p>
+    </section>
+    <section>
+        <h1>제목</h1>
+        <p>
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Maecenas vestibulum, ante sit amet convallis auctor, augue sapien sodales ex, in fringilla ante mauris ac elit. Nam dapibus sem dolor, id pulvinar arcu finibus sed. Nunc tempus mi elit, sit amet
+            consequat nibh lobortis nec. Sed at pellentesque orci. Duis at accumsan mi, ut rhoncus nunc. Duis convallis purus non urna accumsan, vitae rutrum eros semper. Cras gravida augue luctus dui consectetur,
+            tincidunt semper lectus ornare. Pellentesque scelerisque cursus erat vel posuere. Donec interdum, urna vel commodo hendrerit, ex lectus porttitor enim, vel maximus quam mauris ac urna. Sed volutpat placerat ex,
+            eu volutpat urna commodo in. Aliquam hendrerit efficitur orci eu varius. In hac habitasse platea dictumst. Quisque vestibulum purus vitae cursus consectetur. Nam eu malesuada purus, vel blandit ante. Sed ac elit
+            purus. Nullam a nulla pretium, sodales urna eget, facilisis lectus.            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Maecenas vestibulum, ante sit amet convallis auctor, augue sapien sodales ex, in fringilla ante mauris ac elit. Nam dapibus sem dolor, id pulvinar arcu finibus sed. Nunc tempus mi elit, sit amet
+            consequat nibh lobortis nec. Sed at pellentesque orci. Duis at accumsan mi, ut rhoncus nunc. Duis convallis purus non urna accumsan, vitae rutrum eros semper. Cras gravida augue luctus dui consectetur,
+            tincidunt semper lectus ornare. Pellentesque scelerisque cursus erat vel posuere. Donec interdum, urna vel commodo hendrerit, ex lectus porttitor enim, vel maximus quam mauris ac urna. Sed volutpat placerat ex,
+            eu volutpat urna commodo in. Aliquam hendrerit efficitur orci eu varius. In hac habitasse platea dictumst. Quisque vestibulum purus vitae cursus consectetur. Nam eu malesuada purus, vel blandit ante. Sed ac elit
+            purus. Nullam a nulla pretium, sodales urna eget, facilisis lectus.
+        </p>
+    </section>
+    <section>
+        <h1>제목</h1>
+        <p>
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Maecenas vestibulum, ante sit amet convallis auctor, augue sapien sodales ex, in fringilla ante mauris ac elit. Nam dapibus sem dolor, id pulvinar arcu finibus sed. Nunc tempus mi elit, sit amet
+            consequat nibh lobortis nec. Sed at pellentesque orci. Duis at accumsan mi, ut rhoncus nunc. Duis convallis purus non urna accumsan, vitae rutrum eros semper. Cras gravida augue luctus dui consectetur,
+            tincidunt semper lectus ornare. Pellentesque scelerisque cursus erat vel posuere. Donec interdum, urna vel commodo hendrerit, ex lectus porttitor enim, vel maximus quam mauris ac urna. Sed volutpat placerat ex,
+            eu volutpat urna commodo in. Aliquam hendrerit efficitur orci eu varius. In hac habitasse platea dictumst. Quisque vestibulum purus vitae cursus consectetur. Nam eu malesuada purus, vel blandit ante. Sed ac elit
+            purus. Nullam a nulla pretium, sodales urna eget, facilisis lectus.            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Maecenas vestibulum, ante sit amet convallis auctor, augue sapien sodales ex, in fringilla ante mauris ac elit. Nam dapibus sem dolor, id pulvinar arcu finibus sed. Nunc tempus mi elit, sit amet
+            consequat nibh lobortis nec. Sed at pellentesque orci. Duis at accumsan mi, ut rhoncus nunc. Duis convallis purus non urna accumsan, vitae rutrum eros semper. Cras gravida augue luctus dui consectetur,
+            tincidunt semper lectus ornare. Pellentesque scelerisque cursus erat vel posuere. Donec interdum, urna vel commodo hendrerit, ex lectus porttitor enim, vel maximus quam mauris ac urna. Sed volutpat placerat ex,
+            eu volutpat urna commodo in. Aliquam hendrerit efficitur orci eu varius. In hac habitasse platea dictumst. Quisque vestibulum purus vitae cursus consectetur. Nam eu malesuada purus, vel blandit ante. Sed ac elit
+            purus. Nullam a nulla pretium, sodales urna eget, facilisis lectus.
+        </p>
+    </section>
+    <section>
+        <h1>제목</h1>
+        <p>
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Maecenas vestibulum, ante sit amet convallis auctor, augue sapien sodales ex, in fringilla ante mauris ac elit. Nam dapibus sem dolor, id pulvinar arcu finibus sed. Nunc tempus mi elit, sit amet
+            consequat nibh lobortis nec. Sed at pellentesque orci. Duis at accumsan mi, ut rhoncus nunc. Duis convallis purus non urna accumsan, vitae rutrum eros semper. Cras gravida augue luctus dui consectetur,
+            tincidunt semper lectus ornare. Pellentesque scelerisque cursus erat vel posuere. Donec interdum, urna vel commodo hendrerit, ex lectus porttitor enim, vel maximus quam mauris ac urna. Sed volutpat placerat ex,
+            eu volutpat urna commodo in. Aliquam hendrerit efficitur orci eu varius. In hac habitasse platea dictumst. Quisque vestibulum purus vitae cursus consectetur. Nam eu malesuada purus, vel blandit ante. Sed ac elit
+            purus. Nullam a nulla pretium, sodales urna eget, facilisis lectus.            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+            Maecenas vestibulum, ante sit amet convallis auctor, augue sapien sodales ex, in fringilla ante mauris ac elit. Nam dapibus sem dolor, id pulvinar arcu finibus sed. Nunc tempus mi elit, sit amet
+            consequat nibh lobortis nec. Sed at pellentesque orci. Duis at accumsan mi, ut rhoncus nunc. Duis convallis purus non urna accumsan, vitae rutrum eros semper. Cras gravida augue luctus dui consectetur,
+            tincidunt semper lectus ornare. Pellentesque scelerisque cursus erat vel posuere. Donec interdum, urna vel commodo hendrerit, ex lectus porttitor enim, vel maximus quam mauris ac urna. Sed volutpat placerat ex,
+            eu volutpat urna commodo in. Aliquam hendrerit efficitur orci eu varius. In hac habitasse platea dictumst. Quisque vestibulum purus vitae cursus consectetur. Nam eu malesuada purus, vel blandit ante. Sed ac elit
+            purus. Nullam a nulla pretium, sodales urna eget, facilisis lectus.
+        </p>
+    </section>
+</body>
+</html>
